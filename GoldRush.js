@@ -39,6 +39,20 @@ class GoldRush extends matrix {
     this.alter(currPlayer.row, currPlayer.col, 1);
     player.setNewPos(currPlayer);
   }
+  checkIfLegal(legalPlayer, direction) {
+    if (legalPlayer.x == 0 && direction == "up") {
+      return false;
+    } else if (legalPlayer.x == this.col - 1 && direction == "down") {
+      //change to ro maybe
+      return false;
+    } else if (legalPlayer.y == 0 && direction == "left") {
+      return false;
+    } else if (legalPlayer.y == this.row - 1 && direction == "right") {
+      return false;
+    } else {
+      return true;
+    }
+  }
 }
 
 module.exports = GoldRush;
