@@ -4,6 +4,7 @@ class Player {
     this.currCol = currCol;
     this.prevRow = currRow;
     this.prevCol = currCol;
+    this.numCoins = 0;
   }
   setNewPos(newPos) {
     this.savePrevPos();
@@ -17,6 +18,9 @@ class Player {
   getMyCurrPos() {
     return { row: this.currRow, col: this.currCol };
   }
+  addCoins(amount) {
+    this.numCoins += amount;
+  }
 }
 
-module.exports = Player;
+//module.exports = Player;

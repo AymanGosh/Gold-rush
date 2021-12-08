@@ -2,18 +2,30 @@ class Matrix {
   constructor(row, col) {
     this.matrix = this.generateMatrix(row, col);
   }
+  getMyMatrix() {
+    return this.matrix;
+  }
   generateMatrix(numRows, numColumns) {
     let matrix = [];
     let num = 1;
-
-    for (let r = 0; r < numRows; r++) {
-      matrix.push([]);
-      for (let c = 0; c < numColumns; c++) {
-        matrix[r].push(".");
+    let coinsCounter = 0;
+    let minCoins = 3;
+    while (coinsCounter < minCoins) {
+      coinsCounter = 0;
+      for (let r = 0; r < numRows; r++) {
+        matrix.push([]);
+        for (let c = 0; c < numColumns; c++) {
+          let randomIndexOfCoins = Math.floor(Math.random() * numColumns) + 0;
+          if (c === randomIndexOfCoins) {
+            matrix[r].push("C");
+            coinsCounter++;
+          } else matrix[r].push(".");
+        }
       }
     }
-    matrix[0][0] = 1;
-    matrix[numRows - 1][numColumns - 1] = 2;
+
+    matrix[0][0] = "1";
+    matrix[numRows - 1][numColumns - 1] = "2";
     return matrix;
   }
   print() {
@@ -33,16 +45,4 @@ class Matrix {
       console.log(this.matrix[y][i]);
     }
   }
-
-  findCoordinate(number) {
-    for (let i = 0; i < this.matrix.length; i++) {
-      for (let j = 0; j < this.matrix[i].length; j++) {
-        if (this.matrix[i][j] === number) {
-          return { x: j, y: i };
-        }
-      }
-    }
-  }
 }
-
-module.exports = Matrix;
