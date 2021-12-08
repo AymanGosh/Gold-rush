@@ -6,6 +6,9 @@ class Player {
     this.prevCol = currCol;
     this.numCoins = 0;
   }
+  getMyScore() {
+    return this.numCoins;
+  }
   setNewPos(newPos) {
     this.savePrevPos();
     this.currRow = newPos.row;
@@ -22,5 +25,3 @@ class Player {
     this.numCoins += amount;
   }
 }
-
-//module.exports = Player;

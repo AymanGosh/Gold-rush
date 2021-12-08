@@ -4,6 +4,12 @@ class GoldRush extends Matrix {
     this.player1 = new Player(0, 0);
     this.player2 = new Player(row - 1, col - 1);
   }
+  getPlayer1() {
+    return this.player1;
+  }
+  getPlayer2() {
+    return this.player2;
+  }
   movePlayer(playerNum, moveStr) {
     let currPlayer;
     playerNum == 1

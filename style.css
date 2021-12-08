@@ -1,13 +1,13 @@
 .matrix-wrapper {
   width: 100%;
   height: 50%;
-  background-color:aquamarine;
+  background-color: aquamarine;
 }
 .cell {
   width: 200px;
   height: 100px;
   text-align: center;
-  align-content:center ;
+  align-content: center;
 }
 
 table,
@@ -19,6 +19,6 @@ td {
 
 thead,
 tfoot {
-  background-color:aqua
+  background-color: aqua;
   color: #fff;
 }

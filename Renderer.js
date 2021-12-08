@@ -10,5 +10,7 @@ class Render {
       newHTML = template({ matrix: board.getMyMatrix()[i] });
       $(".matrix-wrapper").append(newHTML);
     }
+    $("#player1").text("Player 1 Score:" + board.getPlayer1().getMyScore());
+    $("#player2").text("Player 2 Score:" + board.getPlayer2().getMyScore());
   }
 }

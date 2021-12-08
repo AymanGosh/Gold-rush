@@ -23,7 +23,6 @@ class Matrix {
         }
       }
     }
-
     matrix[0][0] = "1";
     matrix[numRows - 1][numColumns - 1] = "2";
     return matrix;
