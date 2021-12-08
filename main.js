@@ -1,18 +1,8 @@
 board = new GoldRush(5, 5);
+render = new Render();
 
-board.print();
+render.render(board);
 
-const source = $("#matrix-template").html();
-const template = Handlebars.compile(source);
-
-function render() {
-  let newHTML;
-  for (let i = 0; i < 5; i++) {
-    newHTML = template({ matrix: board.getMyMatrix()[i] });
-    $(".matrix-wrapper").append(newHTML);
-  }
-}
-render();
 $(document).keypress(function (e) {
   //w
   if (e.which == 119) {
@@ -47,6 +37,6 @@ $(document).keypress(function (e) {
   if (e.which == 108) {
     board.movePlayer(2, "right");
   }
-  $(".matrix-wrapper").empty();
-  render();
+
+  render.render(board);
 });
