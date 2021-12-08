@@ -12,7 +12,7 @@ class GoldRush extends matrix {
     playerNum == 1
       ? (currPlayer = this.player1.getMyCurrPos())
       : (currPlayer = this.player2.getMyCurrPos());
-
+    console.log(currPlayer);
     switch (moveStr) {
       case "down":
         currPlayer.row = currPlayer.row + 1;
@@ -30,14 +30,14 @@ class GoldRush extends matrix {
         console.log("Sorry.");
     }
     playerNum === 1
-      ? this.changPlayerPos(this.player1, currPlayer)
-      : this.changPlayerPos(this.player2, currPlayer);
+      ? this.changPlayerPos(this.player1, currPlayer, playerNum)
+      : this.changPlayerPos(this.player2, currPlayer, playerNum);
   }
-  changPlayerPos(player, currPlayer) {
+  changPlayerPos(player, newPos, playerNum) {
     let currPos = player.getMyCurrPos();
     this.alter(currPos.row, currPos.col, ".");
-    this.alter(currPlayer.row, currPlayer.col, 1);
-    player.setNewPos(currPlayer);
+    this.alter(newPos.row, newPos.col, playerNum);
+    player.setNewPos(newPos);
   }
   checkIfLegal(legalPlayer, direction) {
     if (legalPlayer.x == 0 && direction == "up") {
